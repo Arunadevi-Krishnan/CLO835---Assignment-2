@@ -7,16 +7,16 @@ metadata:
     component: frontend
 spec:
   containers:
-    - name: application-container
-      image: 547747823946.dkr.ecr.us-east-1.amazonaws.com/webapp-assignment2:latest
-      env:
-        - name: DBPWD
-          value: pass
-        - name: DBUSER
-          value: root
-        - name: DBHOST
-          value: "mysql.database.svc.cluster.local"
-        - name: DBPORT
-          value: "3306"
-      ports:
-        - containerPort: 8080
+  - name: application-container
+    image: 547747823946.dkr.ecr.us-east-1.amazonaws.com/webapp-assignment2:latest
+    ports:
+    - containerPort: 8080
+    env:
+    - name: DBUSER
+      value: "root"
+    - name: DBPWD
+      value: "pw"
+    - name: DBPORT
+      value: "3306"
+  imagePullSecrets:
+  - name: mysecret
